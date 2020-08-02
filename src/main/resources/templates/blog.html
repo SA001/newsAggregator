@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Блоги</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+
+<body>
+
+	<div th:replace="header :: header"> </div>
+	
+	<div layout:fragment="content" class="container">
+		<nav aria-label="Page navigation example"
+			style="display: flex; justify-content: space-between;">
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search"
+					placeholder="Search" aria-label="Search">
+			</form>
+		</nav>
+
+		<div class="row" style="margin-top: 10px;">
+			<div class="col-lg-9 col-md-9">
+
+				<th:block th:each="blogList : ${blogList}">
+					<div class="card blog-container">
+						<div class="no-gutters">
+							<div class="">
+								<div class="card-body">
+									<!--  
+									<h5 th:text=${users.get(blogList.getUserLogin()).getUserName()}
+									-->
+									<h5 th:text=${blogList.getUserLogin()}
+										class="card-title"></h5>
+									<p th:text=${blogList.getMsg()} class="card-text"></p>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<th:block />
+			</div>
+
+		</div>
+	</div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
